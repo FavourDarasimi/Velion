@@ -1,3 +1,5 @@
+import Gallery from "@/components/Gallery";
+import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 
 export default function Home() {
@@ -15,15 +17,15 @@ export default function Home() {
         </span>
       </div>
 
-      {/* Navbar canvas — page sections removed, hero lands next */}
-      <main className="relative z-10 flex flex-1 items-center justify-center px-6 pt-28 pb-16">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#E2E8F0_1px,transparent_1px),linear-gradient(to_bottom,#E2E8F0_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)] opacity-60"
-        />
-        <p className="relative rounded-full border border-[#E2E8F0] bg-white px-5 py-2.5 font-mono text-[11px] tracking-[0.22em] text-[#64748B] uppercase shadow-sm">
-          Navbar ready — content next
-        </p>
+      {/* Grid — page backdrop, feathered top and bottom */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#E2E8F0_1px,transparent_1px),linear-gradient(to_bottom,#E2E8F0_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)] opacity-60"
+      />
+
+      <main className="relative z-10 flex flex-1 flex-col">
+        <Hero />
+        <Gallery />
       </main>
     </div>
   );
