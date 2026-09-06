@@ -5,10 +5,10 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const STATS: Array<[string, string]> = [
-  ["27 yrs", "on the road"],
-  ["212 pts", "inspection per car"],
-  ["7 days", "money back"],
+const STATS: Array<{ n: number; suffix: string; label: string }> = [
+  { n: 27, suffix: " yrs", label: "on the road" },
+  { n: 212, suffix: " pts", label: "inspection per car" },
+  { n: 7, suffix: " days", label: "money back" },
 ];
 
 const BRANDS = [
@@ -59,6 +59,56 @@ export default function Hero() {
           duration: 0.8,
         }, 1.0);
 
+      // Count-up stats ride along with the entrance
+      gsap.utils.toArray<HTMLElement>("[data-count]").forEach((el) => {
+        const target = Number(el.dataset.count ?? 0);
+        const suffix = el.dataset.suffix ?? "";
+        const obj = { v: 0 };
+        tl.to(
+          obj,
+          {
+            v: target,
+            duration: 1.6,
+            ease: "expo.out",
+            onUpdate: () => {
+              el.textContent = `${Math.round(obj.v)}${suffix}`;
+            },
+          },
+          0.9,
+        );
+      });
+
+      // Rotating headline word: noise. → markup. → haggling. → waiting.
+      const rotator =
+        root.current?.querySelector<HTMLElement>("[data-rotator]");
+      if (rotator) {
+        const words = ["noise.", "markup.", "haggling.", "waiting."];
+        let wi = 0;
+        const swap = () => {
+          wi = (wi + 1) % words.length;
+          gsap
+            .timeline()
+            .to(rotator, {
+              yPercent: -115,
+              duration: 0.32,
+              ease: "power3.in",
+            })
+            .add(() => {
+              rotator.textContent = words[wi];
+            })
+            .fromTo(
+              rotator,
+              { yPercent: 115 },
+              { yPercent: 0, duration: 0.6, ease: "expo.out" },
+            );
+        };
+        const loop = (): void => {
+          swap();
+          gsap.delayedCall(2.6, loop);
+        };
+        gsap.delayedCall(3.2, loop);
+      }
+
       // Scroll: hero drifts and softens away (scrubbed, no pinning)
       gsap.to('[data-hero="scroll"]', {
         y: -60,
@@ -72,7 +122,70 @@ export default function Hero() {
         },
       });
     }, root);
-    return () => ctx.revert();
+
+    // Pointer-driven spice: magnetic CTA + cursor glow (fine pointers only,
+    // native listeners so they get explicit cleanup alongside ctx.revert)
+    const cleanups: Array<() => void> = [];
+    if (
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+      window.matchMedia("(pointer: fine)").matches
+    ) {
+      const magnet =
+        root.current?.querySelector<HTMLElement>("[data-magnet]");
+      if (magnet) {
+        const xTo = gsap.quickTo(magnet, "x", {
+          duration: 0.4,
+          ease: "power3",
+        });
+        const yTo = gsap.quickTo(magnet, "y", {
+          duration: 0.4,
+          ease: "power3",
+        });
+        const onMove = (e: PointerEvent) => {
+          const r = magnet.getBoundingClientRect();
+          xTo((e.clientX - (r.left + r.width / 2)) * 0.3);
+          yTo((e.clientY - (r.top + r.height / 2)) * 0.3);
+        };
+        const onLeave = () =>
+          gsap.to(magnet, {
+            x: 0,
+            y: 0,
+            duration: 0.7,
+            ease: "elastic.out(1, 0.4)",
+          });
+        magnet.addEventListener("pointermove", onMove);
+        magnet.addEventListener("pointerleave", onLeave);
+        cleanups.push(() => {
+          magnet.removeEventListener("pointermove", onMove);
+          magnet.removeEventListener("pointerleave", onLeave);
+        });
+      }
+      const glow = root.current?.querySelector<HTMLElement>("[data-glow]");
+      const section = root.current;
+      if (glow && section) {
+        const gxTo = gsap.quickTo(glow, "x", {
+          duration: 0.9,
+          ease: "power3",
+        });
+        const gyTo = gsap.quickTo(glow, "y", {
+          duration: 0.9,
+          ease: "power3",
+        });
+        const onGlow = (e: PointerEvent) => {
+          const r = section.getBoundingClientRect();
+          gxTo(((e.clientX - r.left) / r.width - 0.5) * 48);
+          gyTo(((e.clientY - r.top) / r.height - 0.5) * 48);
+        };
+        section.addEventListener("pointermove", onGlow);
+        cleanups.push(() =>
+          section.removeEventListener("pointermove", onGlow),
+        );
+      }
+    }
+    return () => {
+      cleanups.forEach((fn) => fn());
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -86,7 +199,12 @@ export default function Hero() {
         className="mx-auto grid w-full max-w-[1500px] items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:px-10"
       >
         {/* Copy */}
-        <div>
+        <div className="relative">
+          <div
+            aria-hidden="true"
+            data-glow
+            className="pointer-events-none absolute -top-24 -left-24 size-80 rounded-full bg-[radial-gradient(circle,rgba(199,210,254,0.55),transparent_65%)] blur-2xl"
+          />
           <p
             data-hero="eyebrow"
             className="inline-flex items-center gap-2 rounded-full border border-[#E2E8F0] bg-white px-4 py-1.5 font-mono text-[11px] tracking-[0.18em] text-[#475569] uppercase shadow-sm"
@@ -109,7 +227,20 @@ export default function Hero() {
             </span>
             <span className="block overflow-hidden pb-[0.12em] -mb-[0.12em]">
               <span data-hero="line" className="block text-[#64748B]">
-                minus the noise.
+                minus the{" "}
+                <span className="relative inline-block align-baseline">
+                  <span aria-hidden="true" className="invisible">
+                    haggling.
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    data-rotator
+                    className="absolute inset-0 text-[#0F172A]"
+                  >
+                    noise.
+                  </span>
+                  <span className="sr-only">noise.</span>
+                </span>
               </span>
             </span>
           </h1>
@@ -125,7 +256,8 @@ export default function Hero() {
           <div data-hero="fade" className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="#collection"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0F172A] px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#1E293B] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:ring-offset-2 focus-visible:outline-none"
+              data-magnet
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0F172A] px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 will-change-transform hover:bg-[#1E293B] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               Browse collection
               <svg
@@ -155,13 +287,18 @@ export default function Hero() {
             data-hero="fade"
             className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-[#E2E8F0] border-y border-[#E2E8F0]"
           >
-            {STATS.map(([v, l]) => (
-              <div key={l} className="px-4 py-4 first:pl-0">
-                <dt className="font-display text-2xl font-semibold tracking-tight text-[#0F172A]">
-                  {v}
+            {STATS.map((s) => (
+              <div key={s.label} className="px-4 py-4 first:pl-0">
+                <dt
+                  data-count={s.n}
+                  data-suffix={s.suffix}
+                  className="font-display text-2xl font-semibold tracking-tight text-[#0F172A]"
+                >
+                  {s.n}
+                  {s.suffix}
                 </dt>
                 <dd className="mt-1 font-mono text-[10.5px] tracking-[0.16em] text-[#64748B] uppercase">
-                  {l}
+                  {s.label}
                 </dd>
               </div>
             ))}
