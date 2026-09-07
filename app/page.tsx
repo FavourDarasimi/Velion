@@ -3,6 +3,7 @@ import Collection from "@/components/Collection";
 import Financing from "@/components/Financing";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Reviews from "@/components/Reviews";
 import Showroom from "@/components/Showroom";
 import TradeIn from "@/components/TradeIn";
 
@@ -33,6 +34,7 @@ export default function Home() {
         <Showroom />
         <Financing />
         <TradeIn />
+        <Reviews />
       </main>
 
       {/* Dialog sits at page root so its backdrop covers the navbar too */}
