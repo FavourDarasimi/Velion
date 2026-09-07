@@ -1,6 +1,7 @@
 import CarDialog from "@/components/CarDialog";
 import Collection from "@/components/Collection";
 import Financing from "@/components/Financing";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Reviews from "@/components/Reviews";
@@ -38,6 +39,8 @@ export default function Home() {
         <Reviews />
         <Visit />
       </main>
+
+      <Footer />
 
       {/* Dialog sits at page root so its backdrop covers the navbar too */}
       <CarDialog />
