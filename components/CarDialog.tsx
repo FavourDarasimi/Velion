@@ -3,15 +3,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { COLLECTION_HASH, SHOTS } from "@/components/car-images";
+import { DIALOG_HASH, SHOTS } from "@/components/car-images";
 
 const reduced = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**
- * Full-screen car gallery dialog, hash-routed on #collection:
- * "View car" links and the nav Collection anchor open it, the back
- * button and Escape close it, and the URL is shareable.
+ * Full-screen car gallery dialog, hash-routed on #car:
+ * "View car" buttons open it, the back button and Escape close it,
+ * and the URL is shareable.
  */
 export default function CarDialog() {
   const [open, setOpen] = useState(false);
@@ -38,7 +38,7 @@ export default function CarDialog() {
   const close = useCallback(() => {
     setOpen(false);
     document.body.style.overflow = "";
-    if (window.location.hash === COLLECTION_HASH) {
+    if (window.location.hash === DIALOG_HASH) {
       history.replaceState(
         null,
         "",
@@ -48,10 +48,10 @@ export default function CarDialog() {
     if (openerRef.current?.isConnected) openerRef.current.focus();
   }, []);
 
-  // Hash sync — open on #collection, silent-close on back navigation
+  // Hash sync — open on #car, silent-close on back navigation
   useEffect(() => {
     const sync = () => {
-      if (window.location.hash === COLLECTION_HASH) {
+      if (window.location.hash === DIALOG_HASH) {
         if (document.activeElement instanceof HTMLElement) {
           openerRef.current = document.activeElement;
         }

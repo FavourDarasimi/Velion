@@ -343,7 +343,7 @@ export default function Hero() {
                 </span>
               </span>
               <a
-                href="#collection"
+                href="#car"
                 className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0F172A] transition-colors duration-200 hover:bg-[#E9EDF1] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
               >
                 View car

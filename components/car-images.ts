@@ -5,7 +5,7 @@ export interface CarShot {
   n: string;
 }
 
-export const COLLECTION_HASH = "#collection";
+export const DIALOG_HASH = "#car";
 
 export const SHOTS: CarShot[] = [
   {
