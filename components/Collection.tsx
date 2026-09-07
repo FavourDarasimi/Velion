@@ -127,7 +127,7 @@ export default function Collection() {
           <div className="max-w-2xl">
             <p className="flex items-center gap-3 font-mono text-[11px] font-bold tracking-[0.28em] text-[#64748B] uppercase">
               <span aria-hidden="true" className="h-px w-10 bg-[#0F172A]" />
-              01 — The collection
+              The collection
             </p>
             <h2
               id="collection-title"

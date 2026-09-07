@@ -2,6 +2,7 @@ import CarDialog from "@/components/CarDialog";
 import Collection from "@/components/Collection";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Showroom from "@/components/Showroom";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
       <main className="relative z-10 flex flex-1 flex-col">
         <Hero />
         <Collection />
+        <Showroom />
       </main>
 
       {/* Dialog sits at page root so its backdrop covers the navbar too */}
