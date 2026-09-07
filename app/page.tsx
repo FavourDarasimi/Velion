@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Reviews from "@/components/Reviews";
 import Showroom from "@/components/Showroom";
 import TradeIn from "@/components/TradeIn";
+import Visit from "@/components/Visit";
 
 export default function Home() {
   return (
@@ -35,6 +36,7 @@ export default function Home() {
         <Financing />
         <TradeIn />
         <Reviews />
+        <Visit />
       </main>
 
       {/* Dialog sits at page root so its backdrop covers the navbar too */}
