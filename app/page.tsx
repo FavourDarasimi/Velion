@@ -1,5 +1,6 @@
 import CarDialog from "@/components/CarDialog";
 import Collection from "@/components/Collection";
+import Financing from "@/components/Financing";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Showroom from "@/components/Showroom";
@@ -29,6 +30,7 @@ export default function Home() {
         <Hero />
         <Collection />
         <Showroom />
+        <Financing />
       </main>
 
       {/* Dialog sits at page root so its backdrop covers the navbar too */}
