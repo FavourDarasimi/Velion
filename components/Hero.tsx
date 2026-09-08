@@ -200,11 +200,6 @@ export default function Hero() {
       >
         {/* Copy */}
         <div className="relative">
-          <div
-            aria-hidden="true"
-            data-glow
-            className="pointer-events-none absolute -top-24 -left-24 size-80 rounded-full bg-[radial-gradient(circle,rgba(199,210,254,0.55),transparent_65%)] dark:bg-[radial-gradient(circle,rgba(99,102,241,0.25),transparent_65%)] blur-2xl"
-          />
           <p
             data-hero="eyebrow"
             className="inline-flex items-center gap-2 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-white dark:border-white/10 dark:bg-slate-900 px-4 py-1.5 font-mono text-[11px] tracking-[0.18em] text-[#475569] dark:text-slate-300 uppercase shadow-sm"

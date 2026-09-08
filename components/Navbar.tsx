@@ -255,13 +255,8 @@ export default function Navbar() {
                   tabIndex={open ? 0 : -1}
                   className="group flex items-center justify-between rounded-2xl px-4 py-3.5 transition-colors hover:bg-[#F1F5F9] dark:hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
                 >
-                  <span className="flex items-baseline gap-3">
-                    <span className="font-mono text-[11px] text-[#94A3B8] dark:text-slate-500">
-                      0{i + 1}
-                    </span>
-                    <span className="font-display text-[22px] font-medium tracking-tight text-[#0F172A] dark:text-slate-100">
-                      {l.label}
-                    </span>
+                  <span className="font-display text-[22px] font-medium tracking-tight text-[#0F172A] dark:text-slate-100">
+                    {l.label}
                   </span>
                   <svg
                     aria-hidden="true"
