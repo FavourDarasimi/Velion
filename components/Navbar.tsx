@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
   { label: "Collection", href: "#collection" },
@@ -137,6 +138,7 @@ export default function Navbar() {
 
             {/* Actions */}
             <div className="flex items-center gap-2">
+              <ThemeToggle />
               <p className="hidden items-center gap-2 rounded-full border border-[#E2E8F0] bg-white px-3.5 py-2 font-mono text-[11px] tracking-[0.08em] text-[#475569] xl:flex">
                 <span
                   aria-hidden="true"
@@ -209,7 +211,9 @@ export default function Navbar() {
           <p className="font-display text-[17px] font-semibold tracking-tight">
             Velion
           </p>
-          <button
+          <div className="flex items-center gap-2">
+            <ThemeToggle className="bg-[#F1F5F9] dark:bg-white/10" />
+            <button
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close menu"
@@ -227,6 +231,7 @@ export default function Navbar() {
               <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
             </svg>
           </button>
+          </div>
         </div>
 
         <nav
