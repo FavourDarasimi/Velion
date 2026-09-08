@@ -31,10 +31,10 @@ interface Errors {
 }
 
 const inputClass = (invalid: boolean) =>
-  `w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-[#0F172A] placeholder:text-[#94A3B8] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F172A] ${
+  `w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-[#0F172A] placeholder:text-[#94A3B8] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F172A] dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus-visible:ring-white ${
     invalid
       ? "border-red-400"
-      : "border-[#E2E8F0] hover:border-[#94A3B8]"
+      : "border-[#E2E8F0] hover:border-[#94A3B8] dark:border-white/10 dark:hover:border-white/30"
   }`;
 
 export default function TradeIn() {
@@ -101,25 +101,25 @@ export default function TradeIn() {
             </p>
             <h2
               id="trade-in-title"
-              className="font-display mt-4 text-4xl font-semibold tracking-[-0.02em] text-balance text-[#0F172A] sm:text-5xl"
+              className="font-display mt-4 text-4xl font-semibold tracking-[-0.02em] text-balance text-[#0F172A] sm:text-5xl dark:text-slate-100"
             >
               Your old car pays for the new one.
             </h2>
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#475569]">
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#475569] dark:text-slate-300">
               No obligation, no need to buy from us. If the number works,
               it comes straight off your next car.
             </p>
-            <ol className="mt-8 space-y-0 divide-y divide-[#E2E8F0] border-y border-[#E2E8F0]">
+            <ol className="mt-8 space-y-0 divide-y divide-[#E2E8F0] border-y border-[#E2E8F0] dark:divide-white/10 dark:border-white/10">
               {STEPS.map((s) => (
                 <li key={s.n} className="flex gap-4 py-4">
                   <span className="font-mono text-xs font-bold text-[#94A3B8]">
                     {s.n}
                   </span>
                   <span>
-                    <span className="font-display block text-lg font-semibold tracking-tight text-[#0F172A]">
+                    <span className="font-display block text-lg font-semibold tracking-tight text-[#0F172A] dark:text-slate-100">
                       {s.title}
                     </span>
-                    <span className="mt-0.5 block text-sm text-[#475569]">
+                    <span className="mt-0.5 block text-sm text-[#475569] dark:text-slate-300">
                       {s.text}
                     </span>
                   </span>
@@ -131,7 +131,7 @@ export default function TradeIn() {
           {/* Form card */}
           <div
             data-reveal
-            className="rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-[0_32px_60px_-48px_rgba(15,23,42,0.4)] sm:p-8"
+            className="rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-[0_32px_60px_-48px_rgba(15,23,42,0.4)] sm:p-8 dark:border-white/10 dark:bg-slate-900"
           >
             {sent ? (
               <div aria-live="polite" className="flex h-full flex-col justify-center py-8 text-center">
@@ -153,27 +153,27 @@ export default function TradeIn() {
                     />
                   </svg>
                 </span>
-                <p className="font-display mt-5 text-3xl font-semibold tracking-tight text-[#0F172A]">
+                <p className="font-display mt-5 text-3xl font-semibold tracking-tight text-[#0F172A] dark:text-slate-100">
                   Request received.
                 </p>
-                <p className="mt-2 font-mono text-[11px] tracking-[0.18em] text-[#64748B] uppercase">
+                <p className="mt-2 font-mono text-[11px] tracking-[0.18em] text-[#64748B] uppercase dark:text-slate-400">
                   {summary}
                 </p>
-                <p className="mx-auto mt-3 max-w-sm text-[#475569]">
+                <p className="mx-auto mt-3 max-w-sm text-[#475569] dark:text-slate-300">
                   A buyer will call you with a real valuation within 24
                   hours — no obligation attached.
                 </p>
               </div>
             ) : (
               <form onSubmit={onSubmit} noValidate>
-                <p className="font-mono text-[11px] tracking-[0.24em] text-[#64748B] uppercase">
+                <p className="font-mono text-[11px] tracking-[0.24em] text-[#64748B] uppercase dark:text-slate-400">
                   Free valuation · 30 seconds
                 </p>
                 <div className="mt-5 space-y-4">
                   <div>
                     <label
                       htmlFor="trade-vehicle"
-                      className="mb-1.5 block text-sm font-semibold text-[#0F172A]"
+                      className="mb-1.5 block text-sm font-semibold text-[#0F172A] dark:text-slate-100"
                     >
                       Make & model
                     </label>
@@ -199,7 +199,7 @@ export default function TradeIn() {
                     <div>
                       <label
                         htmlFor="trade-year"
-                        className="mb-1.5 block text-sm font-semibold text-[#0F172A]"
+                        className="mb-1.5 block text-sm font-semibold text-[#0F172A] dark:text-slate-100"
                       >
                         Year
                       </label>
@@ -224,7 +224,7 @@ export default function TradeIn() {
                     <div>
                       <label
                         htmlFor="trade-mileage"
-                        className="mb-1.5 block text-sm font-semibold text-[#0F172A]"
+                        className="mb-1.5 block text-sm font-semibold text-[#0F172A] dark:text-slate-100"
                       >
                         Mileage (km)
                       </label>
@@ -251,7 +251,7 @@ export default function TradeIn() {
                     <div>
                       <label
                         htmlFor="trade-name"
-                        className="mb-1.5 block text-sm font-semibold text-[#0F172A]"
+                        className="mb-1.5 block text-sm font-semibold text-[#0F172A] dark:text-slate-100"
                       >
                         Name
                       </label>
@@ -276,7 +276,7 @@ export default function TradeIn() {
                     <div>
                       <label
                         htmlFor="trade-phone"
-                        className="mb-1.5 block text-sm font-semibold text-[#0F172A]"
+                        className="mb-1.5 block text-sm font-semibold text-[#0F172A] dark:text-slate-100"
                       >
                         Phone
                       </label>
@@ -302,7 +302,7 @@ export default function TradeIn() {
                 </div>
                 <button
                   type="submit"
-                  className="mt-6 w-full cursor-pointer rounded-full bg-[#0F172A] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1E293B] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:ring-offset-2 focus-visible:outline-none"
+                  className="mt-6 w-full cursor-pointer rounded-full bg-[#0F172A] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1E293B] dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200 focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:ring-offset-2 focus-visible:outline-none"
                 >
                   Get my estimate
                 </button>

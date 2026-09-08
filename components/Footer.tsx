@@ -8,7 +8,7 @@ const NAV = [
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 border-t border-[#E2E8F0] bg-white">
+    <footer className="relative z-10 border-t border-[#E2E8F0] bg-white dark:border-white/10 dark:bg-slate-950">
       <div className="mx-auto w-full max-w-[1500px] px-4 py-12 sm:px-6 lg:px-10">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
@@ -35,18 +35,18 @@ export default function Footer() {
                   />
                 </svg>
               </span>
-              <span className="font-display text-[17px] font-semibold tracking-tight text-[#0F172A]">
+              <span className="font-display text-[17px] font-semibold tracking-tight text-[#0F172A] dark:text-slate-100">
                 Velion
               </span>
             </a>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#475569]">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#475569] dark:text-slate-300">
               Independent dealer since 1998. Hand-picked cars, printed
               prices, coffee always on.
             </p>
           </div>
 
           <nav aria-label="Footer">
-            <p className="font-mono text-[11px] tracking-[0.24em] text-[#64748B] uppercase">
+            <p className="font-mono text-[11px] tracking-[0.24em] text-[#64748B] uppercase dark:text-slate-400">
               Sections
             </p>
             <ul className="mt-4 space-y-2.5">
@@ -54,7 +54,7 @@ export default function Footer() {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-sm font-medium text-[#334155] transition-colors rounded-sm hover:text-[#0F172A] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
+                    className="text-sm font-medium text-[#334155] transition-colors rounded-sm hover:text-[#0F172A] dark:text-slate-300 dark:hover:text-white focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
                   >
                     {l.label}
                   </a>
@@ -64,16 +64,16 @@ export default function Footer() {
           </nav>
 
           <div>
-            <p className="font-mono text-[11px] tracking-[0.24em] text-[#64748B] uppercase">
+            <p className="font-mono text-[11px] tracking-[0.24em] text-[#64748B] uppercase dark:text-slate-400">
               Find us
             </p>
-            <address className="mt-4 space-y-2.5 text-sm not-italic text-[#334155]">
+            <address className="mt-4 space-y-2.5 text-sm not-italic text-[#334155] dark:text-slate-300">
               <p>Kantstraße 7, Berlin</p>
               <p>Mon–Sat · 9:00–19:00</p>
               <p>
                 <a
                   href="tel:+49305550107"
-                  className="font-semibold text-[#0F172A] rounded-sm hover:underline focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
+                  className="font-semibold text-[#0F172A] rounded-sm hover:underline dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
                 >
                   +49 30 555 0107
                 </a>
@@ -82,7 +82,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-[#E2E8F0] pt-6 font-mono text-[11px] tracking-[0.18em] text-[#94A3B8] uppercase sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-2 border-t border-[#E2E8F0] pt-6 font-mono text-[11px] tracking-[0.18em] text-[#94A3B8] uppercase sm:flex-row sm:items-center sm:justify-between dark:border-white/10 dark:text-slate-500">
           <p>© 2026 Velion Motors</p>
           <p>Set in Outfit & Inter</p>
         </div>

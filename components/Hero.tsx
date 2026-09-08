@@ -203,11 +203,11 @@ export default function Hero() {
           <div
             aria-hidden="true"
             data-glow
-            className="pointer-events-none absolute -top-24 -left-24 size-80 rounded-full bg-[radial-gradient(circle,rgba(199,210,254,0.55),transparent_65%)] blur-2xl"
+            className="pointer-events-none absolute -top-24 -left-24 size-80 rounded-full bg-[radial-gradient(circle,rgba(199,210,254,0.55),transparent_65%)] dark:bg-[radial-gradient(circle,rgba(99,102,241,0.25),transparent_65%)] blur-2xl"
           />
           <p
             data-hero="eyebrow"
-            className="inline-flex items-center gap-2 rounded-full border border-[#E2E8F0] bg-white px-4 py-1.5 font-mono text-[11px] tracking-[0.18em] text-[#475569] uppercase shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-white dark:border-white/10 dark:bg-slate-900 px-4 py-1.5 font-mono text-[11px] tracking-[0.18em] text-[#475569] dark:text-slate-300 uppercase shadow-sm"
           >
             <span aria-hidden="true" className="relative flex size-1.5">
               <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-500 motion-safe:animate-ping" />
@@ -218,7 +218,7 @@ export default function Hero() {
 
           <h1
             id="hero-title"
-            className="font-display mt-6 text-[clamp(3rem,7vw,5.75rem)] leading-[0.98] font-semibold tracking-[-0.02em] text-balance text-[#0F172A]"
+            className="font-display mt-6 text-[clamp(3rem,7vw,5.75rem)] leading-[0.98] font-semibold tracking-[-0.02em] text-balance text-[#0F172A] dark:text-slate-100"
           >
             <span className="block overflow-hidden pb-[0.1em] -mb-[0.1em]">
               <span data-hero="line" className="block">
@@ -226,7 +226,7 @@ export default function Hero() {
               </span>
             </span>
             <span className="block overflow-hidden pb-[0.12em] -mb-[0.12em]">
-              <span data-hero="line" className="block text-[#64748B]">
+              <span data-hero="line" className="block text-[#64748B] dark:text-slate-400">
                 minus the{" "}
                 <span className="relative inline-block align-baseline">
                   <span aria-hidden="true" className="invisible">
@@ -235,7 +235,7 @@ export default function Hero() {
                   <span
                     aria-hidden="true"
                     data-rotator
-                    className="absolute inset-0 text-[#0F172A]"
+                    className="absolute inset-0 text-[#0F172A] dark:text-slate-100"
                   >
                     noise.
                   </span>
@@ -247,7 +247,7 @@ export default function Hero() {
 
           <p
             data-hero="fade"
-            className="mt-6 max-w-xl text-lg leading-relaxed text-[#475569]"
+            className="mt-6 max-w-xl text-lg leading-relaxed text-[#475569] dark:text-slate-300"
           >
             Hand-picked stock, a 212-point inspection and fixed prices in
             plain print. Come for a coffee, leave for a test drive.
@@ -257,7 +257,7 @@ export default function Hero() {
             <a
               href="#collection"
               data-magnet
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0F172A] px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 will-change-transform hover:bg-[#1E293B] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:ring-offset-2 focus-visible:outline-none"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0F172A] dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200 px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 will-change-transform hover:bg-[#1E293B] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               Browse collection
               <svg
@@ -277,7 +277,7 @@ export default function Hero() {
             </a>
             <a
               href="#visit"
-              className="inline-flex items-center justify-center rounded-full border border-[#E2E8F0] bg-white px-7 py-3.5 text-sm font-semibold text-[#0F172A] transition-colors duration-200 hover:border-[#0F172A] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
+              className="inline-flex items-center justify-center rounded-full border border-[#E2E8F0] dark:border-white/10 bg-white dark:border-white/10 dark:bg-slate-900 px-7 py-3.5 text-sm font-semibold text-[#0F172A] dark:text-slate-100 transition-colors duration-200 hover:border-[#0F172A] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
             >
               Book test drive
             </a>
@@ -285,19 +285,19 @@ export default function Hero() {
 
           <dl
             data-hero="fade"
-            className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-[#E2E8F0] border-y border-[#E2E8F0]"
+            className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-[#E2E8F0] dark:divide-white/10 border-y border-[#E2E8F0] dark:border-white/10"
           >
             {STATS.map((s) => (
               <div key={s.label} className="px-4 py-4 first:pl-0">
                 <dt
                   data-count={s.n}
                   data-suffix={s.suffix}
-                  className="font-display text-2xl font-semibold tracking-tight text-[#0F172A]"
+                  className="font-display text-2xl font-semibold tracking-tight text-[#0F172A] dark:text-slate-100"
                 >
                   {s.n}
                   {s.suffix}
                 </dt>
-                <dd className="mt-1 font-mono text-[10.5px] tracking-[0.16em] text-[#64748B] uppercase">
+                <dd className="mt-1 font-mono text-[10.5px] tracking-[0.16em] text-[#64748B] dark:text-slate-400 uppercase">
                   {s.label}
                 </dd>
               </div>
@@ -329,7 +329,7 @@ export default function Hero() {
                 sizes="(max-width: 1024px) 90vw, 640px"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
-              <span className="absolute top-3 right-3 rounded-full bg-white px-3 py-1 font-mono text-[10px] font-bold tracking-[0.2em] text-[#0F172A] uppercase">
+              <span className="absolute top-3 right-3 rounded-full bg-white px-3 py-1 font-mono text-[10px] font-bold tracking-[0.2em] text-[#0F172A] dark:text-slate-100 uppercase">
                 New in
               </span>
             </div>
@@ -344,7 +344,7 @@ export default function Hero() {
               </span>
               <a
                 href="#car"
-                className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0F172A] transition-colors duration-200 hover:bg-[#E9EDF1] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0F172A] dark:text-slate-100 transition-colors duration-200 hover:bg-[#E9EDF1] dark:hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
               >
                 View car
               </a>
@@ -359,12 +359,12 @@ export default function Hero() {
         >
           <ul
             aria-label="Brands in stock"
-            className="flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-[#E2E8F0] pt-6"
+            className="flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-[#E2E8F0] dark:border-white/10 pt-6"
           >
             {BRANDS.map((b) => (
               <li
                 key={b}
-                className="font-mono text-[11px] tracking-[0.24em] text-[#94A3B8] uppercase transition-colors hover:text-[#0F172A]"
+                className="font-mono text-[11px] tracking-[0.24em] text-[#94A3B8] dark:text-slate-500 uppercase transition-colors hover:text-[#0F172A] dark:text-slate-100"
               >
                 {b}
               </li>

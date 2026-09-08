@@ -102,11 +102,11 @@ export default function Financing() {
           </p>
           <h2
             id="financing-title"
-            className="font-display mt-4 text-4xl font-semibold tracking-[-0.02em] text-balance text-[#0F172A] sm:text-5xl"
+            className="font-display mt-4 text-4xl font-semibold tracking-[-0.02em] text-balance text-[#0F172A] sm:text-5xl dark:text-slate-100"
           >
             Plain numbers, printed large.
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-[#475569]">
+          <p className="mt-4 text-lg leading-relaxed text-[#475569] dark:text-slate-300">
             Move the sliders. What you see is what you pay — no arrangement
             fees hiding in footnotes.
           </p>
@@ -114,7 +114,7 @@ export default function Financing() {
 
         <div
           data-reveal
-          className="mt-10 grid gap-6 overflow-hidden rounded-3xl bg-[#0F172A] p-6 text-white sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10"
+          className="mt-10 grid gap-6 overflow-hidden rounded-3xl bg-[#0F172A] p-6 text-white sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 dark:border dark:border-white/10"
         >
           {/* Controls */}
           <div className="space-y-8">
@@ -256,12 +256,12 @@ export default function Financing() {
           ].map(([t, d]) => (
             <div
               key={t}
-              className="rounded-2xl border border-[#E2E8F0] bg-white p-6"
+              className="rounded-2xl border border-[#E2E8F0] bg-white p-6 dark:border-white/10 dark:bg-slate-900"
             >
-              <p className="font-display text-lg font-semibold tracking-tight text-[#0F172A]">
+              <p className="font-display text-lg font-semibold tracking-tight text-[#0F172A] dark:text-slate-100">
                 {t}
               </p>
-              <p className="mt-1.5 text-sm leading-relaxed text-[#475569]">
+              <p className="mt-1.5 text-sm leading-relaxed text-[#475569] dark:text-slate-300">
                 {d}
               </p>
             </div>

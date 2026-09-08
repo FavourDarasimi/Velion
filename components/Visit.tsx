@@ -16,7 +16,7 @@ const inputClass = (invalid: boolean, dark = false) =>
   `w-full rounded-xl border px-4 py-3 text-[15px] transition-colors focus:outline-none focus-visible:ring-2 ${
     dark
       ? "border-white/20 bg-white/[0.07] text-white placeholder:text-white/40 focus-visible:ring-white"
-      : "border-[#E2E8F0] bg-white text-[#0F172A] placeholder:text-[#94A3B8] focus-visible:ring-[#0F172A]"
+      : "border-[#E2E8F0] bg-white text-[#0F172A] placeholder:text-[#94A3B8] focus-visible:ring-[#0F172A] dark:border-white/10 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus-visible:ring-white"
   } ${invalid ? (dark ? "border-red-400" : "border-red-400") : dark ? "hover:border-white/40" : "hover:border-[#94A3B8]"}`;
 
 const todayISO = () => {
@@ -84,7 +84,7 @@ export default function Visit() {
       <div className="mx-auto w-full max-w-[1500px] px-4 sm:px-6 lg:px-10">
         <div
           data-reveal
-          className="grid gap-10 overflow-hidden rounded-3xl bg-[#0F172A] p-6 text-white sm:p-10 lg:grid-cols-[1fr_1fr] lg:gap-14 lg:p-14"
+          className="grid gap-10 overflow-hidden rounded-3xl bg-[#0F172A] p-6 text-white sm:p-10 lg:grid-cols-[1fr_1fr] lg:gap-14 lg:p-14 dark:border dark:border-white/10"
         >
           {/* Pitch */}
           <div className="flex flex-col justify-center">
@@ -121,7 +121,7 @@ export default function Visit() {
           </div>
 
           {/* Form */}
-          <div className="rounded-2xl bg-white p-6 text-[#0F172A] sm:p-8">
+          <div className="rounded-2xl bg-white p-6 text-[#0F172A] sm:p-8 dark:bg-slate-900 dark:text-slate-100 dark:border dark:border-white/10">
             {sent ? (
               <div aria-live="polite" className="flex h-full flex-col justify-center py-8 text-center">
                 <span
@@ -145,10 +145,10 @@ export default function Visit() {
                 <p className="font-display mt-5 text-3xl font-semibold tracking-tight">
                   You&apos;re booked in.
                 </p>
-                <p className="mt-2 font-mono text-[11px] tracking-[0.18em] text-[#64748B] uppercase">
+                <p className="mt-2 font-mono text-[11px] tracking-[0.18em] text-[#64748B] dark:text-slate-400 uppercase">
                   {summary}
                 </p>
-                <p className="mx-auto mt-3 max-w-sm text-[#475569]">
+                <p className="mx-auto mt-3 max-w-sm text-[#475569] dark:text-slate-300">
                   We&apos;ll confirm by phone shortly. The coffee part is
                   guaranteed.
                 </p>
@@ -256,7 +256,7 @@ export default function Visit() {
                 </div>
                 <button
                   type="submit"
-                  className="mt-6 w-full cursor-pointer rounded-full bg-[#0F172A] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1E293B] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:ring-offset-2 focus-visible:outline-none"
+                  className="mt-6 w-full cursor-pointer rounded-full bg-[#0F172A] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1E293B] dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200 focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:ring-offset-2 focus-visible:outline-none"
                 >
                   Book my drive
                 </button>

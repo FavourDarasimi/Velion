@@ -147,7 +147,7 @@ export default function CarDialog() {
           role="dialog"
           aria-modal="true"
           aria-label={`911 Carrera S gallery — ${shot.label}`}
-          className="w-full max-w-5xl rounded-3xl bg-[#0F172A] p-4 text-white shadow-2xl sm:p-6"
+          className="w-full max-w-5xl rounded-3xl bg-[#0F172A] p-4 text-white shadow-2xl sm:p-6 dark:border dark:border-white/10"
         >
           {/* Header */}
           <div className="flex items-center justify-between gap-4 px-1 pb-4">
@@ -285,7 +285,7 @@ export default function CarDialog() {
             <a
               href="#visit"
               onClick={close}
-              className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-[#0F172A] transition-colors hover:bg-[#E9EDF1] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+              className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-[#0F172A] transition-colors hover:bg-[#E9EDF1] dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
             >
               Book test drive
             </a>

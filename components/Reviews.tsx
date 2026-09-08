@@ -38,7 +38,7 @@ function Stars() {
           aria-hidden="true"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="size-4 text-[#0F172A]"
+          className="size-4 text-[#0F172A] dark:text-slate-100"
         >
           <path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" />
         </svg>
@@ -87,18 +87,18 @@ export default function Reviews() {
             </p>
             <h2
               id="reviews-title"
-              className="font-display mt-4 text-4xl font-semibold tracking-[-0.02em] text-balance text-[#0F172A] sm:text-5xl"
+              className="font-display mt-4 text-4xl font-semibold tracking-[-0.02em] text-balance text-[#0F172A] sm:text-5xl dark:text-slate-100"
             >
               2,140 neighbours rate us 4.9.
             </h2>
           </div>
-          <div className="flex items-center gap-3 rounded-2xl border border-[#E2E8F0] bg-white px-5 py-4">
-            <p className="font-display text-4xl font-semibold tracking-tight text-[#0F172A]">
+          <div className="flex items-center gap-3 rounded-2xl border border-[#E2E8F0] bg-white px-5 py-4 dark:border-white/10 dark:bg-slate-900">
+            <p className="font-display text-4xl font-semibold tracking-tight text-[#0F172A] dark:text-slate-100">
               4.9
             </p>
             <span>
               <Stars />
-              <span className="mt-1 block font-mono text-[10.5px] tracking-[0.16em] text-[#64748B] uppercase">
+              <span className="mt-1 block font-mono text-[10.5px] tracking-[0.16em] text-[#64748B] uppercase dark:text-slate-400">
                 Google · 2,140 reviews
               </span>
             </span>
@@ -110,17 +110,17 @@ export default function Reviews() {
             <figure
               key={r.name}
               data-reveal
-              className="flex flex-col justify-between rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-7"
+              className="flex flex-col justify-between rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-7 dark:border-white/10 dark:bg-slate-900"
             >
               <div>
                 <Stars />
-                <blockquote className="mt-4 text-[17px] leading-relaxed text-[#0F172A]">
+                <blockquote className="mt-4 text-[17px] leading-relaxed text-[#0F172A] dark:text-slate-100">
                   “{r.quote}”
                 </blockquote>
               </div>
-              <figcaption className="mt-6 border-t border-[#E2E8F0] pt-4">
-                <p className="font-semibold text-[#0F172A]">{r.name}</p>
-                <p className="mt-0.5 font-mono text-[10.5px] tracking-[0.16em] text-[#64748B] uppercase">
+              <figcaption className="mt-6 border-t border-[#E2E8F0] pt-4 dark:border-white/10">
+                <p className="font-semibold text-[#0F172A] dark:text-slate-100">{r.name}</p>
+                <p className="mt-0.5 font-mono text-[10.5px] tracking-[0.16em] text-[#64748B] uppercase dark:text-slate-400">
                   {r.context}
                 </p>
               </figcaption>

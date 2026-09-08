@@ -73,8 +73,8 @@ export default function Navbar() {
         <header
           className={`mx-auto max-w-[1500px] rounded-2xl border transition-all duration-300 motion-safe:animate-rise ${
             scrolled
-              ? "border-[#E2E8F0] bg-white/85 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.35)] backdrop-blur-xl"
-              : "border-[#E2E8F0]/70 bg-white/60 backdrop-blur-md"
+              ? "border-[#E2E8F0] dark:border-white/10 bg-white/85 dark:border-white/10 dark:bg-slate-950/85 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.35)] backdrop-blur-xl"
+              : "border-[#E2E8F0] dark:border-white/10/70 bg-white/60 dark:border-white/10 dark:bg-slate-950/60 backdrop-blur-md"
           }`}
         >
           <div className="flex h-16 items-center justify-between gap-3 px-3 sm:px-4">
@@ -103,10 +103,10 @@ export default function Navbar() {
                 </svg>
               </span>
               <span className="flex flex-col leading-none">
-                <span className="font-display text-[17px] font-semibold tracking-tight text-[#0F172A]">
+                <span className="font-display text-[17px] font-semibold tracking-tight text-[#0F172A] dark:text-slate-100">
                   Velion
                 </span>
-                <span className="font-mono text-[9px] tracking-[0.24em] text-[#64748B] uppercase">
+                <span className="font-mono text-[9px] tracking-[0.24em] text-[#64748B] dark:text-slate-400 uppercase">
                   Motors
                 </span>
               </span>
@@ -126,8 +126,8 @@ export default function Navbar() {
                     aria-current={isActive ? "true" : undefined}
                     className={`rounded-full px-4 py-2 text-sm transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none ${
                       isActive
-                        ? "bg-[#0F172A] font-semibold text-white"
-                        : "font-medium text-[#475569] hover:bg-[#E9EDF1] hover:text-[#0F172A]"
+                        ? "bg-[#0F172A] dark:bg-white dark:text-slate-950 font-semibold text-white"
+                        : "font-medium text-[#475569] dark:text-slate-300 hover:bg-[#E9EDF1] dark:hover:bg-white/10 hover:text-[#0F172A] dark:text-slate-100"
                     }`}
                   >
                     {l.label}
@@ -139,7 +139,7 @@ export default function Navbar() {
             {/* Actions */}
             <div className="flex items-center gap-2">
               <ThemeToggle />
-              <p className="hidden items-center gap-2 rounded-full border border-[#E2E8F0] bg-white px-3.5 py-2 font-mono text-[11px] tracking-[0.08em] text-[#475569] xl:flex">
+              <p className="hidden items-center gap-2 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-white dark:border-white/10 dark:bg-slate-900 px-3.5 py-2 font-mono text-[11px] tracking-[0.08em] text-[#475569] dark:text-slate-300 xl:flex">
                 <span
                   aria-hidden="true"
                   className="relative flex size-1.5"
@@ -151,7 +151,7 @@ export default function Navbar() {
               </p>
               <a
                 href="#visit"
-                className="group hidden items-center gap-1.5 rounded-full bg-[#0F172A] px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#1E293B] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:ring-offset-2 focus-visible:outline-none sm:flex"
+                className="group hidden items-center gap-1.5 rounded-full bg-[#0F172A] dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#1E293B] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:ring-offset-2 focus-visible:outline-none sm:flex"
               >
                 Book test drive
                 <svg
@@ -177,7 +177,7 @@ export default function Navbar() {
                 aria-expanded={open}
                 aria-controls="mobile-menu"
                 aria-label="Open menu"
-                className="flex size-10 cursor-pointer items-center justify-center rounded-full text-[#0F172A] transition-colors hover:bg-[#E9EDF1] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none lg:hidden"
+                className="flex size-10 cursor-pointer items-center justify-center rounded-full text-[#0F172A] dark:text-slate-100 transition-colors hover:bg-[#E9EDF1] dark:hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none lg:hidden"
               >
                 <svg
                   aria-hidden="true"
@@ -201,7 +201,7 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Menu"
-        className={`fixed inset-0 z-[60] flex flex-col bg-white/95 backdrop-blur-xl transition-all duration-300 lg:hidden ${
+        className={`fixed inset-0 z-[60] flex flex-col bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl transition-all duration-300 lg:hidden ${
           open
             ? "visible opacity-100"
             : "invisible opacity-0 motion-reduce:visible"
@@ -253,13 +253,13 @@ export default function Navbar() {
                   href={l.href}
                   onClick={() => setOpen(false)}
                   tabIndex={open ? 0 : -1}
-                  className="group flex items-center justify-between rounded-2xl px-4 py-3.5 transition-colors hover:bg-[#F1F5F9] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
+                  className="group flex items-center justify-between rounded-2xl px-4 py-3.5 transition-colors hover:bg-[#F1F5F9] dark:hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
                 >
                   <span className="flex items-baseline gap-3">
-                    <span className="font-mono text-[11px] text-[#94A3B8]">
+                    <span className="font-mono text-[11px] text-[#94A3B8] dark:text-slate-500">
                       0{i + 1}
                     </span>
-                    <span className="font-display text-[22px] font-medium tracking-tight text-[#0F172A]">
+                    <span className="font-display text-[22px] font-medium tracking-tight text-[#0F172A] dark:text-slate-100">
                       {l.label}
                     </span>
                   </span>
@@ -269,7 +269,7 @@ export default function Navbar() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.8"
-                    className="size-5 text-[#94A3B8] transition-all group-hover:translate-x-0.5 group-hover:text-[#0F172A]"
+                    className="size-5 text-[#94A3B8] dark:text-slate-500 transition-all group-hover:translate-x-0.5 group-hover:text-[#0F172A] dark:text-slate-100"
                   >
                     <path
                       d="M5 12h14m-6-6 6 6-6 6"
@@ -288,14 +288,14 @@ export default function Navbar() {
             href="#visit"
             onClick={() => setOpen(false)}
             tabIndex={open ? 0 : -1}
-            className="flex items-center justify-center rounded-full bg-[#0F172A] px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1E293B] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
+            className="flex items-center justify-center rounded-full bg-[#0F172A] dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200 px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1E293B] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
           >
             Book test drive
           </a>
           <a
             href="tel:+49305550107"
             tabIndex={open ? 0 : -1}
-            className="flex items-center justify-center rounded-full border border-[#E2E8F0] px-5 py-3.5 text-sm font-medium text-[#0F172A] transition-colors hover:bg-[#F1F5F9] focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
+            className="flex items-center justify-center rounded-full border border-[#E2E8F0] dark:border-white/10 dark:text-slate-100 px-5 py-3.5 text-sm font-medium text-[#0F172A] dark:text-slate-100 transition-colors hover:bg-[#F1F5F9] dark:hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#0F172A] focus-visible:outline-none"
           >
             +49 30 555 0107
           </a>
