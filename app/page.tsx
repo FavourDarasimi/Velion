@@ -19,7 +19,7 @@ export default function Home() {
         aria-hidden="true"
         className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center overflow-hidden select-none"
       >
-        <span className="font-display text-[19vw] leading-none font-bold tracking-[-0.04em] whitespace-nowrap text-[#0F172A] dark:text-slate-100/[0.04] [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
+        <span className="font-display text-[19vw] leading-none font-bold tracking-[-0.04em] whitespace-nowrap text-[#0F172A]/[0.04] dark:text-slate-100/[0.04] [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
           VELION
         </span>
       </div>
