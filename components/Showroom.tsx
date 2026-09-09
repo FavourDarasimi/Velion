@@ -110,8 +110,8 @@ export default function Showroom() {
           <div data-reveal className="relative">
             <figure className="group relative h-full min-h-80 overflow-hidden rounded-2xl bg-[#0F172A]">
               <Image
-                src="/gallery/cockpit.jpg"
-                alt="Driver cockpit with dark leather seats and digital dash"
+                src="/gallery/showroom.jpg"
+                alt="Velion Motors showroom in daylight with hand-picked cars"
                 fill
                 sizes="(max-width: 1024px) 95vw, 700px"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
